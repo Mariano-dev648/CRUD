@@ -35,7 +35,7 @@ entCPF = Entry(window, textvariable=txtCPF, width=Gui.Width_entry)
 
 listClientes = Listbox(window, width=100)
 scrollClientes = Scrollbar (window)
-btnViewALL = Button(window, text="Ver Todos")
+btnViewAll = Button(window, text="Ver Todos")
 btnBuscar = Button(window, text="Buscar")
 btnInserir = Button(window, text="Inserir")
 btnUpdate = Button(window, text="Atualizar Selecionados")
@@ -77,5 +77,5 @@ for child in window.winfo_children():
     else:
         child.grid_configure(padx=Gui.x_pad, pady=Gui.y_pad, sticky='N')
 
-    def run(self):
-        Gui.window.mainloop()
+def run(self):
+     Gui.window.mainloop()

@@ -5,8 +5,8 @@ class Gui ():
     """classe da interface gráfica
     """
     x_pad = 5
-    t_pad = 3
-    width_entry = 30
+    y_pad = 3
+    Width_entry = 30
 
 #Para criar uma janela 
 #PYSQL será o nome fantasia da aplicação
@@ -16,10 +16,10 @@ window.wm_title("PYSQL versão 1.0")
 
 #definição das variaveis que recebem os dados inseridos pelo user
 
-txtNome_StringVar()
-txtSobrenome_StringVar()
-txtEmail_StringVar()
-txtCPF_StringVar()
+txtNome = StringVar()
+txtSobrenome = StringVar()
+txtEmail = StringVar()
+txtCPF = StringVar()
 
 # Criando os objetos que farão parte das janelas
 
@@ -27,14 +27,14 @@ lblnome = Label(window, text="Nome")
 lblSobrenome = Label(window, text="Sobrenome")
 lblEmail = Label(window, text="Email")
 lblCPF = Label(window, text="CPF")
-entNome = Entry(window, textvariable=txtNome, width=width_entry)
+entNome = Entry(window, textvariable=txtNome, width=Gui.Width_entry)
 
-entSObrenome = Entry(window, textvariable=txtSobrenome, width=width_entry)
-entEmail = Entry(window, textvariable=txtEmail, width=width_entry)
-entCPF = Entry(window, textvariable=txtCPF, width=width_entry)
+entSobrenome = Entry(window, textvariable=txtSobrenome, width=Gui.Width_entry)
+entEmail = Entry(window, textvariable=txtEmail, width=Gui.Width_entry)
+entCPF = Entry(window, textvariable=txtCPF, width=Gui.Width_entry)
 
 listClientes = Listbox(window, width=100)
-scrollClientes = scrollbar (window)
+scrollClientes = Scrollbar (window)
 btnViewAll = Button(window, text="Ver Todos")
 btnBuscar = Button(window, text="Buscar")
 btnInserir = Button(window, text="Inserir")
@@ -58,24 +58,24 @@ btnViewAll.grid(row=4, column=0)
 btnBuscar.grid(row=5, column=0, columnspan=2)
 btnInserir.grid(row=6, column=0, columnspan=2)
 btnUpdate.grid(row=7, column=0, columnspan=2)
-btnDel.grid(row=8, column=0, columnspan=2)
+btnDell.grid(row=8, column=0, columnspan=2)
 btnClose.grid(row=9, column=0, columnspan=2)
 
 #União do Scrollbar com a Listbox
 
 listClientes.configure(yscrollcommand=scrollClientes.set)
-ScrollClientes.configure(command=listClientes.yview)
+scrollClientes.configure(command=listClientes.yview)
 
-for chield in window.winfo_children():
+for child in window.winfo_children():
     widget_class = child.__class__.__name__
     if widget_class == "Button":
-        child.grid_configure(sticky='We', padx=_pad, pady=y_pad)
+        child.grid_configure(sticky='We', padx=Gui.x_pad, pady=Gui.y_pad)
     elif widget_class == "listbox":
         child.grid_configure(padx=0, pady=0, sticky='NS')
     elif widget_class == "Scrollvar":
         child.grid_configure(padx=0, pady=0, sticky='NS')
     else:
-        child.grid_configure(padx=x_pad, pady=y_pad, sticky='N')
+        child.grid_configure(padx=Gui.x_pad, pady=Gui.y_pad, sticky='N')
 
     def run(self):
         Gui.window.mainloop()

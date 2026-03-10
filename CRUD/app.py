@@ -1,6 +1,6 @@
 
 from GUI import *
-import backend as core
+import database as core
 
 app = None
 
@@ -12,8 +12,14 @@ def view_command():
 
 def search_command():
     app.listClientes.delete(0, END)
-    
-rows = core.search(app.txtNome.get(), app.txtSobrenome.get(), app.txtEmail.get(), app.txtCPF.get())
+
+    rows = core.search(
+        app.txtNome.get(),
+        app.txtSobrenome.get(),
+        app.txtEmail.get(),
+        app.txtCPF.get()
+    )
+
     for r in rows:
         app.listClientes.insert(END, r)
 

@@ -14,15 +14,14 @@ def search_command():
     app.listClientes.delete(0, END)
     
 rows = core.search(app.txtNome.get(), app.txtSobrenome.get(), app.txtEmail.get(), app.txtCPF.get())
-
-for r in rows:
+    for r in rows:
         app.listClientes.insert(END, r)
 
 def insert_command():
-    core.insert(app.txtNone.get(), app.txtSobrenome.get(), app.txtEmail.get(), app.txtCPF.get())
+    core.insert(app.txtNome.get(), app.txtSobrenome.get(), app.txtEmail.get(), app.txtCPF.get())
     view_command()
 
-def Update_command():
+def update_command():
     core.update(selected[0],
                 app.txtNome.get(),
                 app.txtSobrenome.get(),
@@ -53,11 +52,11 @@ if __name__ == "__main__":
     app = Gui()
     app.listClientes.bind('<<ListboxSelect>>', getSelectedrow)
 
-    app.btnViewALL.configure(command=view_command)
+    app.btnViewAll.configure(command=view_command)
     app.btnBuscar.configure(command=search_command)
     app.btnInserir.configure(command=insert_command)
-    app.btnUpdate.configure(command=Update_command)
+    app.btnUpdate.configure(command=update_command)
     app.btnDel.configure(command=del_command)
-    app.Close.configure(command=app.window.destroy)
+    app.btnClose.configure(command=app.window.destroy)
     app.run()
     

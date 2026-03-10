@@ -35,11 +35,11 @@ entCPF = Entry(window, textvariable=txtCPF, width=Gui.Width_entry)
 
 listClientes = Listbox(window, width=100)
 scrollClientes = Scrollbar (window)
-btnViewAll = Button(window, text="Ver Todos")
+btnViewALL = Button(window, text="Ver Todos")
 btnBuscar = Button(window, text="Buscar")
 btnInserir = Button(window, text="Inserir")
 btnUpdate = Button(window, text="Atualizar Selecionados")
-btnDell = Button(window, text="Deletar Selecionados")
+btnDel = Button(window, text="Deletar Selecionados")
 btnClose = Button(window, text="Fechar")
 
 # associando os objetos criados ao Grid da Janela
@@ -54,11 +54,11 @@ entEmail.grid(row=2, column=1)
 entCPF.grid(row=3, column=1)
 listClientes.grid(row=0, column=2, rowspan=10)
 scrollClientes.grid(row=0, column=6, rowspan=10)
-btnViewAll.grid(row=4, column=0)
+btnViewALL.grid(row=4, column=0)
 btnBuscar.grid(row=5, column=0, columnspan=2)
 btnInserir.grid(row=6, column=0, columnspan=2)
 btnUpdate.grid(row=7, column=0, columnspan=2)
-btnDell.grid(row=8, column=0, columnspan=2)
+btnDel.grid(row=8, column=0, columnspan=2)
 btnClose.grid(row=9, column=0, columnspan=2)
 
 #União do Scrollbar com a Listbox
@@ -70,13 +70,12 @@ for child in window.winfo_children():
     widget_class = child.__class__.__name__
     if widget_class == "Button":
         child.grid_configure(sticky='We', padx=Gui.x_pad, pady=Gui.y_pad)
-    elif widget_class == "listbox":
+    elif widget_class == "Listbox":
         child.grid_configure(padx=0, pady=0, sticky='NS')
-    elif widget_class == "Scrollvar":
+    elif widget_class == "Scrollbar":
         child.grid_configure(padx=0, pady=0, sticky='NS')
     else:
         child.grid_configure(padx=Gui.x_pad, pady=Gui.y_pad, sticky='N')
 
     def run(self):
         Gui.window.mainloop()
-

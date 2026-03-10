@@ -19,7 +19,7 @@ class transactionObject():
 
     def execute(self, sql, parms = None):
         if transactionObject.connected:
-            if parms None:
+            if parms == None:
                 transactionObject.cur.execute(sql)
             else:
                 transactionObject.cur.execute(sql, parms)

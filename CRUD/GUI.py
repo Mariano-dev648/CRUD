@@ -54,7 +54,7 @@ entEmail.grid(row=2, column=1)
 entCPF.grid(row=3, column=1)
 listClientes.grid(row=0, column=2, rowspan=10)
 scrollClientes.grid(row=0, column=6, rowspan=10)
-btnViewALL.grid(row=4, column=0)
+btnViewAll.grid(row=4, column=0)
 btnBuscar.grid(row=5, column=0, columnspan=2)
 btnInserir.grid(row=6, column=0, columnspan=2)
 btnUpdate.grid(row=7, column=0, columnspan=2)
@@ -77,5 +77,5 @@ for child in window.winfo_children():
     else:
         child.grid_configure(padx=Gui.x_pad, pady=Gui.y_pad, sticky='N')
 
-def run(self):
+def run():
      Gui.window.mainloop()

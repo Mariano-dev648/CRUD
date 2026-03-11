@@ -85,4 +85,3 @@ class transactionObject():
 
 db = transactionObject()
 db.initDB()
-    

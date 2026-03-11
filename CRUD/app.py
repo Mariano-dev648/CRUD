@@ -1,4 +1,4 @@
-
+from tkinter import *
 from GUI import *
 import database as core
 
@@ -54,7 +54,7 @@ def getSelectedrow(event):
     app.entCPF.insert(END, selected[4])
     return selected
 
-if __name__ == "__main__":
+if __name__ == "__GUI__":
     app = Gui()
     app.listClientes.bind('<<ListboxSelect>>', getSelectedrow)
 
@@ -65,4 +65,3 @@ if __name__ == "__main__":
     app.btnDel.configure(command=del_command)
     app.btnClose.configure(command=app.window.destroy)
     app.run()
-    

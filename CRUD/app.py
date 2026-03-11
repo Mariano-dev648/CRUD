@@ -54,7 +54,7 @@ def getSelectedrow(event):
     app.entCPF.insert(END, selected[4])
     return selected
 
-if __name__ == "__GUI__":
+if __name__ == "__main__":
     app = Gui()
     app.listClientes.bind('<<ListboxSelect>>', getSelectedrow)
 
